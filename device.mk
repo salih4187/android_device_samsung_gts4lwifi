@@ -111,6 +111,11 @@ PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-service \
     keystore.msm8998
 
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-impl \
+    android.hardware.light@2.0-service
+
 # QCOM
 PRODUCT_PACKAGES += \
     libjson \
