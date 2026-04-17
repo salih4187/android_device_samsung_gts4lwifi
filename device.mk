@@ -75,6 +75,10 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.midi.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
 
+# Camera
+PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.5-service
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl \
