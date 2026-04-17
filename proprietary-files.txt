@@ -26,41 +26,6 @@ vendor/lib/com.qualcomm.qti.ant@1.0.so
 vendor/lib64/hw/com.qualcomm.qti.ant@1.0-impl.so
 vendor/lib64/com.qualcomm.qti.ant@1.0.so
 
-# Audio
-vendor/bin/hw/android.hardware.audio@2.0-service
-vendor/etc/init/android.hardware.audio@2.0-service.rc
-vendor/lib/hw/android.hardware.audio.effect@2.0-impl.so
-vendor/lib/hw/android.hardware.audio.effect@4.0-impl.so
-vendor/lib/hw/android.hardware.audio.effect@5.0-impl.so
-vendor/lib/hw/android.hardware.audio@2.0-impl.so
-vendor/lib/hw/android.hardware.audio@4.0-impl.so
-vendor/lib/hw/android.hardware.audio@5.0-impl.so
-vendor/lib/hw/audio.primary.msm8998.so
-vendor/lib/hw/sound_trigger.primary.msm8998.so
-vendor/lib/lib_SamsungRec_06005.so
-vendor/lib/lib_SoundAlive_SRC384_ver320.so
-vendor/lib/lib_soundaliveresampler.so
-vendor/lib/libalsautils.so
-vendor/lib/libaudio_log_utils.so
-vendor/lib/libaudio_soundtrigger.so
-vendor/lib/libfloatingfeature.so
-vendor/lib/librecordalive.so
-vendor/lib/libsamsungVoipResampler.so
-vendor/lib/libsecaudioinfo.so
-vendor/lib/libsecnativefeature.so
-vendor/lib/vendor.samsung.hardware.audio@1.0.so
-vendor/lib64/hw/android.hardware.audio.effect@2.0-impl.so
-vendor/lib64/hw/android.hardware.audio.effect@4.0-impl.so
-vendor/lib64/hw/android.hardware.audio.effect@5.0-impl.so
-vendor/lib64/hw/android.hardware.audio@2.0-impl.so
-vendor/lib64/hw/android.hardware.audio@4.0-impl.so
-vendor/lib64/hw/android.hardware.audio@5.0-impl.so
-vendor/lib64/libalsautils.so
-vendor/lib64/libfloatingfeature.so
-vendor/lib64/libsecaudioinfo.so
-vendor/lib64/libsecnativefeature.so
-vendor/lib64/vendor.samsung.hardware.audio@1.0.so
-
 # Audio (FX modules)
 vendor/lib/soundfx/libasphere.so
 vendor/lib/soundfx/libaudioeffectoffload.so
