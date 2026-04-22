@@ -9,12 +9,12 @@ DEVICE_PATH := device/samsung/gts4lwifi
 BUILD_BROKEN_DUP_RULES := true
 
 # Architecture
+TARGET_SCVE_DISABLED := true
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := generic
-TARGET_CPU_VARIANT_RUNTIME := cortex-a73
 
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv8-a
@@ -32,6 +32,11 @@ BOARD_SUPPORTS_SOUND_TRIGGER := true
 
 # APEX
 OVERRIDE_TARGET_FLATTEN_APEX := true
+
+# Bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BOARD_USES_WIPOWER := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := msm8998
@@ -52,12 +57,43 @@ TARGET_USES_HWC2 := true
 TARGET_SCREEN_DENSITY := 360
 TARGET_USES_GRALLOC1 := true
 TARGET_USES_ION := true
+TARGET_USES_NEW_ION_API :=true
+TARGET_USES_QCOM_DISPLAY_BSP := true
+TARGET_USES_COLOR_METADATA := true
+
 USE_OPENGL_RENDERER := true
 
 OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 
 # DRM
 TARGET_ENABLE_MEDIADRM_64 := true
+
+# Enable dex pre-opt to speed up initial boot
+ifeq ($(HOST_OS),linux)
+    ifeq ($(WITH_DEXPREOPT),)
+      WITH_DEXPREOPT := true
+      WITH_DEXPREOPT_PIC := true
+      ifneq ($(TARGET_BUILD_VARIANT),user)
+        # Retain classes.dex in APK's for non-user builds
+        DEX_PREOPT_DEFAULT := nostripping
+      endif
+    endif
+endif
+
+#Enable PD locater/notifier
+TARGET_PD_SERVICE_ENABLED := true
+
+#Enable peripheral manager
+TARGET_PER_MGR_ENABLED := true
+
+#Enable SSC Feature
+TARGET_USES_SSC := true
+
+# Enable sensor multi HAL
+USE_SENSOR_MULTI_HAL := true
+
+#Enable CPUSets
+ENABLE_CPUSETS := true
 
 # Kernel
 BOARD_BOOT_HEADER_VERSION := 0
@@ -77,7 +113,17 @@ TARGET_KERNEL_ADDITIONAL_FLAGS := SEC_BUILD_OPTION_VTS=true
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CONFIG := gts4lwifi_defconfig
 TARGET_KERNEL_RECOVERY_CONFIG := gts4lwifi_recovery_defconfig
-TARGET_KERNEL_SOURCE := kernel/samsung/gts4lwifi
+TARGET_KERNEL_SOURCE := kernel/samsung/msm8998
+TARGET_KERNEL_APPEND_DTB := true
+TARGET_COMPILE_WITH_MSM_KERNEL := true
+
+MAX_EGL_CACHE_KEY_SIZE := 12*1024
+MAX_EGL_CACHE_SIZE := 2048*1024
+
+TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
+MAX_VIRTUAL_DISPLAY_DIMENSION := 4096
+
+TARGET_INIT_COLDBOOT_TIMEOUT := 8
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
