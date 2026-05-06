@@ -181,7 +181,8 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.samsung.bsp.rc \
     init.samsung.rc \
-    init.target.rc
+    init.target.rc \
+    ueventd.rc
 
 # OMX
 PRODUCT_PACKAGES += \
