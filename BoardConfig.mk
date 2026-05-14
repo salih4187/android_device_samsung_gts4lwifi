@@ -181,8 +181,9 @@ BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
 #BOARD_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # VINTF
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
-TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
+DEVICE_MANIFEST_FILE 	+= $(DEVICE_PATH)/manifest.xml
+DEVICE_MATRIX_FILE 	:= $(DEVICE_PATH)/compatibility_matrix.xml
+TARGET_FS_CONFIG_GEN 	:= $(DEVICE_PATH)/config.fs
 
 # Inherit the proprietary files
 include vendor/samsung/gts4lwifi/BoardConfigVendor.mk
