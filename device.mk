@@ -181,6 +181,7 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     init.gts4lwifi.rc \
     init.msm.usb.configfs.rc \
+    init.recovery.qcom.rc \
     init.qcom.factory.rc \
     init.qcom.rc \
     init.qcom.usb.rc \
