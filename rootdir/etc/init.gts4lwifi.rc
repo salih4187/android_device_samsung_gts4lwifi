@@ -31,9 +31,6 @@ on init
 # Carrier
     mkdir /preload 0771 system system
 
-on boot
-    write /proc/sys/vm/swappiness 100
-
 on fs
 # OMC Partition
     mkdir /omr 0771 system system
