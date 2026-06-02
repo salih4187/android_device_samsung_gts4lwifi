@@ -100,29 +100,21 @@ on post-fs-data
 on boot
     start rmt_storage
     start rfs_access
-
-    #CPUSET(8998)
-    chown system system /dev/cpuset/top-app/cpus
-    chown system system /dev/cpuset/foreground/cpus
-    chown system system /dev/cpuset/background/cpus
-    chown system system /dev/cpuset/system-background/cpus
-    chmod 664 /dev/cpuset/top-app/cpus
-    chmod 664 /dev/cpuset/foreground/cpus
-    chmod 664 /dev/cpuset/background/cpus
-    chmod 664 /dev/cpuset/system-background/cpus
+    write /dev/cpuset/top-app/cpus 0-3
+    write /dev/cpuset/foreground/cpus 0-3
+    write /dev/cpuset/foreground/boost/cpus 0-3
+    write /dev/cpuset/background/cpus 0-3
+    write /dev/cpuset/system-background/cpus 0-3
     write /dev/cpuset/top-app/cpus 0-7
-    write /dev/cpuset/top-app/mems 0
-    write /dev/cpuset/foreground/cpus 0-2,4-7
-    write /dev/cpuset/foreground/mems 0
-    write /dev/cpuset/background/cpus 0-1
-    write /dev/cpuset/background/mems 0
-    write /dev/cpuset/system-background/cpus 0-2
-    write /dev/cpuset/system-background/mems 0
+    write /dev/cpuset/foreground/cpus 0-7
+    write /dev/cpuset/foreground/boost/cpus 0-7
+    write /dev/cpuset/background/cpus 0-7
+    write /dev/cpuset/system-background/cpus 0-7
 
    # Add a cpuset for the camera daemon
    # We want all cores for camera
    mkdir /dev/cpuset/camera-daemon
-   write /dev/cpuset/camera-daemon/cpus 0-7
+   write /dev/cpuset/camera-daemon/cpus 0-3
    write /dev/cpuset/camera-daemon/mems 0
    chown cameraserver cameraserver /dev/cpuset/camera-daemon
    chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks
