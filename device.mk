@@ -116,6 +116,9 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl \
     android.hardware.light@2.0-service
 
+# Platform
+PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
+
 # Power HAL
 PRODUCT_PACKAGES += \
     android.hardware.power@1.0-impl \
