@@ -100,6 +100,10 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8998 \
     memtrack.msm8998
 
+# fastbootd
+PRODUCT_PACKAGES += \
+    fastbootd
+
 # Gatekeeper HAL
 PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl \
